@@ -57,7 +57,7 @@
     /* Model Viewer Styling */
     model-viewer {
       width: 100%;
-      height: 420px;
+      height: 440px;
       background-color: #0f172a;
       --poster-color: #0f172a;
       border-radius: 0.75rem;
@@ -70,8 +70,8 @@
       box-shadow: 0 0 12px rgba(13, 148, 136, 0.8);
       color: #ffffff;
       cursor: pointer;
-      height: 24px;
-      width: 24px;
+      height: 26px;
+      width: 26px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -81,7 +81,7 @@
     }
 
     .hotspot-btn:hover {
-      transform: scale(1.2);
+      transform: scale(1.25);
       background: #0284c7;
     }
 
@@ -90,6 +90,13 @@
       border-bottom: 3px solid #0d9488;
       color: #0d9488;
       font-weight: 600;
+    }
+
+    canvas#opticsCanvas {
+      width: 100%;
+      height: 320px;
+      background-color: #090d16;
+      border-radius: 0.75rem;
     }
   </style>
 </head>
@@ -110,11 +117,11 @@
           </div>
         </div>
 
-        <!-- Desktop Navigation Tabs -->
+        <!-- Desktop Navigation Tabs (Kuis dihapus) -->
         <nav class="hidden md:flex space-x-1 text-sm font-medium">
           <button onclick="switchTab('modul1')" id="nav-modul1" class="tab-btn px-4 py-5 hover:text-teal-400 transition-colors flex items-center space-x-2 tab-active">
             <i class="fa-solid fa-cube text-xs"></i>
-            <span>1. Model 3D Instrumen</span>
+            <span>1. Model 3D & Cara Kerja</span>
           </button>
           <button onclick="switchTab('modul2')" id="nav-modul2" class="tab-btn px-4 py-5 text-slate-300 hover:text-teal-400 transition-colors flex items-center space-x-2">
             <i class="fa-solid fa-book-open text-xs"></i>
@@ -123,10 +130,6 @@
           <button onclick="switchTab('modul3')" id="nav-modul3" class="tab-btn px-4 py-5 text-slate-300 hover:text-teal-400 transition-colors flex items-center space-x-2">
             <i class="fa-solid fa-calculator text-xs"></i>
             <span>3. Kalkulator Analitis</span>
-          </button>
-          <button onclick="switchTab('modul4')" id="nav-modul4" class="tab-btn px-4 py-5 text-slate-300 hover:text-teal-400 transition-colors flex items-center space-x-2">
-            <i class="fa-solid fa-circle-question text-xs"></i>
-            <span>4. Uji Pemahaman</span>
           </button>
         </nav>
 
@@ -142,7 +145,7 @@
     <!-- Mobile Drawer Navigation -->
     <div id="mobile-menu" class="hidden md:hidden bg-slate-800 border-b border-slate-700 px-4 pt-2 pb-4 space-y-2">
       <button onclick="switchTab('modul1'); toggleMobileMenu()" class="w-full text-left px-3 py-2 rounded-md text-base font-medium text-white hover:bg-slate-700 flex items-center space-x-3">
-        <i class="fa-solid fa-cube text-teal-400"></i><span>1. Model 3D Instrumen</span>
+        <i class="fa-solid fa-cube text-teal-400"></i><span>1. Model 3D & Cara Kerja</span>
       </button>
       <button onclick="switchTab('modul2'); toggleMobileMenu()" class="w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-700 flex items-center space-x-3">
         <i class="fa-solid fa-book-open text-teal-400"></i><span>2. Teori & SOP Thiamin</span>
@@ -150,29 +153,26 @@
       <button onclick="switchTab('modul3'); toggleMobileMenu()" class="w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-700 flex items-center space-x-3">
         <i class="fa-solid fa-calculator text-teal-400"></i><span>3. Kalkulator Analitis</span>
       </button>
-      <button onclick="switchTab('modul4'); toggleMobileMenu()" class="w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-700 flex items-center space-x-3">
-        <i class="fa-solid fa-circle-question text-teal-400"></i><span>4. Uji Pemahaman</span>
-      </button>
     </div>
   </header>
 
   <!-- MAIN CONTENT CONTAINER -->
   <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
 
-    <!-- MODUL 1: 3D MODEL & KOMPONEN SPEKTROFOTOMETER -->
+    <!-- MODUL 1: 3D MODEL & CARA KERJA INSTRUMEN -->
     <section id="sec-modul1" class="tab-content block space-y-6">
       <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
           <div>
             <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
               <i class="fa-solid fa-cube text-teal-600"></i>
-              Model 3D Interaktif Shimadzu UV-1800
+              Model 3D & Simulasi Cara Kerja Shimadzu UV-1800
             </h2>
-            <p class="text-sm text-slate-600 mt-1">Eksplorasi komponen instrumen spektrofotometer double-beam melalui simulasi interaktif 3D.</p>
+            <p class="text-sm text-slate-600 mt-1">Eksplorasi komponen instrumen 3D eksterior dan simulasi cara kerja sistem optik double-beam internal secara interaktif.</p>
           </div>
           <div class="flex items-center space-x-2">
             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-teal-100 text-teal-800">
-              Double Beam Spectrum
+              Double Beam System
             </span>
             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-800">
               190 - 1100 nm
@@ -183,7 +183,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <!-- 3D Viewer Container -->
           <div class="lg:col-span-2 relative bg-slate-900 rounded-xl overflow-hidden shadow-inner border border-slate-800 flex flex-col">
-            <!-- Render Model Viewer -->
+            <!-- Render Model Viewer (Dapat memuat file GLB / GLTF / FBX terkonversi) -->
             <model-viewer 
               id="uv-viewer"
               src="https://modelviewer.dev/shared-assets/models/Astronaut.glb" 
@@ -194,7 +194,7 @@
               camera-orbit="0deg 75deg 2.5m"
               field-of-view="30deg">
               
-              <!-- Hotspots Simulation -->
+              <!-- Hotspots Interaktif Komponen Utama -->
               <button class="hotspot-btn" slot="hotspot-light" data-position="0m 0.3m 0m" onclick="selectComponent('light')">1</button>
               <button class="hotspot-btn" slot="hotspot-mono" data-position="-0.2m 0.1m 0m" onclick="selectComponent('mono')">2</button>
               <button class="hotspot-btn" slot="hotspot-sample" data-position="0.2m 0.1m 0m" onclick="selectComponent('sample')">3</button>
@@ -202,15 +202,21 @@
               <button class="hotspot-btn" slot="hotspot-screen" data-position="-0.1m 0.4m 0.1m" onclick="selectComponent('screen')">5</button>
             </model-viewer>
 
-            <!-- Viewer Controls / Badge Overlay -->
-            <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between bg-slate-900/80 backdrop-blur border border-slate-700/50 rounded-lg p-2 text-xs text-slate-300">
+            <!-- Custom 3D Model File Loader Input -->
+            <div class="p-3 bg-slate-950 border-t border-slate-800 flex flex-wrap items-center justify-between text-xs text-slate-300 gap-2">
               <span class="flex items-center gap-1.5">
-                <i class="fa-solid fa-hand-pointer text-teal-400"></i>
-                Putar: Klik & Drag | Zoom: Scroll
+                <i class="fa-solid fa-file-code text-teal-400"></i>
+                File Model 3D Sendiri (.glb/.gltf):
               </span>
-              <button onclick="reset3DCamera()" class="px-2 py-1 bg-slate-700 hover:bg-slate-600 rounded text-white text-xs transition">
-                <i class="fa-solid fa-arrows-to-dot mr-1"></i>Reset Kamera
-              </button>
+              <div class="flex items-center gap-2">
+                <input type="file" id="custom-model-file" accept=".glb,.gltf" onchange="loadUser3DModel(event)" class="hidden">
+                <button onclick="document.getElementById('custom-model-file').click()" class="px-2.5 py-1 bg-teal-600 hover:bg-teal-500 text-white rounded font-medium transition flex items-center gap-1">
+                  <i class="fa-solid fa-upload"></i> Unggah Model 3D (.glb)
+                </button>
+                <button onclick="reset3DCamera()" class="px-2.5 py-1 bg-slate-700 hover:bg-slate-600 text-white rounded transition">
+                  <i class="fa-solid fa-arrows-to-dot mr-1"></i>Reset
+                </button>
+              </div>
             </div>
           </div>
 
@@ -243,7 +249,7 @@
 
               <!-- Detailed Info Content -->
               <div id="comp-description" class="text-sm text-slate-600 leading-relaxed bg-white p-4 rounded-lg border border-slate-200 shadow-sm min-h-[160px]">
-                Silakan klik pada salah satu nomor hotspot pada model 3D atau tombol komponen di atas untuk melihat detail fungsi dan spesifikasi teknis Shimadzu UV-1800.
+                Silakan klik pada salah satu tombol komponen atau hotspot pada model 3D untuk melihat fungsi dan spesifikasi teknis Shimadzu UV-1800.
               </div>
             </div>
 
@@ -251,6 +257,59 @@
               <span>Spesifikasi: Shimadzu UV-1800</span>
               <span class="font-mono">Bandwidth: 1 nm</span>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIMULASI CARA KERJA SISTEM OPTIK INTERNAL 3D INTERAKTIF -->
+      <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
+        <h3 class="text-lg font-bold text-slate-900 mb-2 flex items-center gap-2">
+          <i class="fa-solid fa-sliders text-teal-600"></i>
+          Simulasi Cara Kerja Internal (Double-Beam Optical Path)
+        </h3>
+        <p class="text-xs text-slate-600 mb-4">
+          Geser slider panjang gelombang dan konsentrasi di bawah untuk mensimulasikan perubahan berkas sinar dari sumber cahaya, pemisahan berkas oleh Beam Splitter, hingga penyerapan absorbansi pada kuvet sampel.
+        </p>
+
+        <!-- Canvas Visualisasi Jalur Optik -->
+        <div class="relative overflow-hidden">
+          <canvas id="opticsCanvas"></canvas>
+        </div>
+
+        <!-- Interactive Optics Controls -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs">
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">
+              Panjang Gelombang (λ): <span id="sim-wl-val" class="font-mono text-teal-700 font-bold">261 nm (Area UV)</span>
+            </label>
+            <input type="range" id="sim-wl" min="190" max="800" value="261" class="w-full accent-teal-600 cursor-pointer">
+          </div>
+
+          <div>
+            <label class="block font-semibold text-slate-700 mb-1">
+              Konsentrasi Sampel Thiamin: <span id="sim-conc-val" class="font-mono text-teal-700 font-bold">6.0 ppm</span>
+            </label>
+            <input type="range" id="sim-conc" min="0" max="20" value="6" step="0.5" class="w-full accent-teal-600 cursor-pointer">
+          </div>
+        </div>
+
+        <!-- Live Readout Stats -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-3 text-xs font-mono">
+          <div class="p-2.5 bg-slate-900 text-white rounded-lg border border-slate-800">
+            <span class="text-slate-400 block text-[10px]">SUMBER LAMPU</span>
+            <span id="sim-lamp" class="font-bold text-amber-400">Deuterium (D2)</span>
+          </div>
+          <div class="p-2.5 bg-slate-900 text-white rounded-lg border border-slate-800">
+            <span class="text-slate-400 block text-[10px]">MONOKROMATOR</span>
+            <span id="sim-grating" class="font-bold text-indigo-400">Czerny-Turner 1 nm</span>
+          </div>
+          <div class="p-2.5 bg-slate-900 text-white rounded-lg border border-slate-800">
+            <span class="text-slate-400 block text-[10px]">TRANSMITANSI (%T)</span>
+            <span id="sim-trans" class="font-bold text-sky-400">70.8 %</span>
+          </div>
+          <div class="p-2.5 bg-slate-900 text-white rounded-lg border border-slate-800">
+            <span class="text-slate-400 block text-[10px]">ABSORBANSI (A)</span>
+            <span id="sim-abs" class="font-bold text-rose-400">0.368</span>
           </div>
         </div>
       </div>
@@ -281,9 +340,9 @@
             </div>
             <ul class="text-xs text-slate-600 space-y-2 leading-relaxed">
               <li><strong class="text-slate-800">A (Absorbansi):</strong> Derajat penyerapan sinar monokromatis oleh sampel.</li>
-              <li><strong class="text-slate-800">ε (Absorptivitas Molar):</strong> Konstanta karakteristik zat terlarut ($\text{L}\cdot\text{mol}^{-1}\cdot\text{cm}^{-1}$).</li>
-              <li><strong class="text-slate-800">b (Tebal Kuvet):</strong> Lebar jalur berkas cahaya ($1\text{ cm}$).</li>
-              <li><strong class="text-slate-800">c (Konsentrasi):</strong> Konsentrasi analit dalam larutan ($\text{ppm}$ atau $\text{mol/L}$).</li>
+              <li><strong class="text-slate-800">ε (Absorptivitas Molar):</strong> Konstanta karakteristik zat terlarut (L·mol⁻¹·cm⁻¹).</li>
+              <li><strong class="text-slate-800">b (Tebal Kuvet):</strong> Lebar jalur berkas cahaya (1 cm).</li>
+              <li><strong class="text-slate-800">c (Konsentrasi):</strong> Konsentrasi analit dalam larutan (ppm atau mol/L).</li>
             </ul>
           </div>
 
@@ -296,7 +355,7 @@
               <p>Thiamin HCl mengandung struktur cincin pirimidin dan tiazol yang bertindak sebagai <strong>kromofor</strong>, mampu menyerap radiasi ultraviolet.</p>
               <div class="p-3 bg-amber-50 rounded-lg border border-amber-200 text-amber-900">
                 <i class="fa-solid fa-circle-info mr-1"></i>
-                <strong>Panjang Gelombang Maksimum ($\lambda_{\max}$):</strong> $\approx 261\text{ nm}$ dalam matriks pelarut Asam Klorida ($\text{HCl } 0,1\text{ M}$).
+                <strong>Panjang Gelombang Maksimum (λ<sub>maks</sub>):</strong> ≈ 261 nm dalam matriks pelarut Asam Klorida (HCl 0,1 M).
               </div>
             </div>
           </div>
@@ -314,8 +373,8 @@
             <div class="relative pl-6">
               <span class="absolute -left-2.5 top-0.5 w-5 h-5 rounded-full bg-teal-600 text-white font-bold text-xs flex items-center justify-center">1</span>
               <h4 class="font-semibold text-slate-900 text-sm">Persiapan Larutan Induk Thiamin (100 ppm)</h4>
-              <p class="text-xs text-slate-600 mt-1">
-                Timbang dengan teliti $10,0\text{ mg}$ standar Thiamin HCl murni menggunakan neraca analitik. Larutkan dengan pelarut $\text{HCl } 0,1\text{ M}$ dalam labu ukur $100\text{ mL}$, kembangkan hingga tanda batas dan homogenkan.
+              <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                Timbang dengan teliti 10,0 mg standar Thiamin HCl murni menggunakan neraca analitik. Larutkan dengan pelarut HCl 0,1 M dalam labu ukur 100 mL, kembangkan hingga tanda batas dan homogenkan.
               </p>
             </div>
 
@@ -323,8 +382,8 @@
             <div class="relative pl-6">
               <span class="absolute -left-2.5 top-0.5 w-5 h-5 rounded-full bg-teal-600 text-white font-bold text-xs flex items-center justify-center">2</span>
               <h4 class="font-semibold text-slate-900 text-sm">Pembuatan Deret Standar Kalibrasi</h4>
-              <p class="text-xs text-slate-600 mt-1">
-                Pipet secara akurat larutan induk $100\text{ ppm}$ sebanyak $1,0\text{ mL}; 2,0\text{ mL}; 3,0\text{ mL}; 4,0\text{ mL};$ dan $5,0\text{ mL}$ ke dalam masing-masing labu ukur $50\text{ mL}$ untuk memperoleh konsentrasi deret: <strong>2, 4, 6, 8, dan 10 ppm</strong>.
+              <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                Pipet secara akurat larutan induk 100 ppm sebanyak 1,0 mL; 2,0 mL; 3,0 mL; 4,0 mL; dan 5,0 mL ke dalam masing-masing labu ukur 50 mL untuk memperoleh konsentrasi deret: <strong>2, 4, 6, 8, dan 10 ppm</strong>.
               </p>
             </div>
 
@@ -332,8 +391,8 @@
             <div class="relative pl-6">
               <span class="absolute -left-2.5 top-0.5 w-5 h-5 rounded-full bg-teal-600 text-white font-bold text-xs flex items-center justify-center">3</span>
               <h4 class="font-semibold text-slate-900 text-sm">Preparasi & Pengenceran Sampel Tablet</h4>
-              <p class="text-xs text-slate-600 mt-1">
-                Timbang 20 tablet Thiamin, hitung bobot rata-rata lalu gerus hingga halus. Timbang setara $10\text{ mg}$ Thiamin, larutkan dengan $\text{HCl } 0,1\text{ M}$ dalam labu $100\text{ mL}$, saring. Pipet alikuot $3,0\text{ mL}$ ke dalam labu $50\text{ mL}$ (Faktor Pengenceran).
+              <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                Timbang 20 tablet Thiamin, hitung bobot rata-rata lalu gerus hingga halus. Timbang setara 10 mg Thiamin, larutkan dengan HCl 0,1 M dalam labu 100 mL, saring. Pipet alikuot 3,0 mL ke dalam labu 50 mL (Faktor Pengenceran).
               </p>
             </div>
 
@@ -341,8 +400,8 @@
             <div class="relative pl-6">
               <span class="absolute -left-2.5 top-0.5 w-5 h-5 rounded-full bg-teal-600 text-white font-bold text-xs flex items-center justify-center">4</span>
               <h4 class="font-semibold text-slate-900 text-sm">Pengukuran Absorbansi Spektrofotometer</h4>
-              <p class="text-xs text-slate-600 mt-1">
-                Atur spektrofotometer Shimadzu UV-1800 pada panjang gelombang $\lambda = 261\text{ nm}$. Nol-kan instrumen (autozero) menggunakan blangko $\text{HCl } 0,1\text{ M}$ dalam kuvet kuarsa $1\text{ cm}$. Ukur nilai absorbansi deret standar dan sampel.
+              <p class="text-xs text-slate-600 mt-1 leading-relaxed">
+                Atur spektrofotometer Shimadzu UV-1800 pada panjang gelombang λ = 261 nm. Nol-kan instrumen (autozero) menggunakan blangko HCl 0,1 M dalam kuvet kuarsa 1 cm. Ukur nilai absorbansi deret standar dan sampel.
               </p>
             </div>
           </div>
@@ -357,30 +416,30 @@
           <i class="fa-solid fa-calculator text-teal-600"></i>
           Kalkulator Analitis Spektrofotometri Interaktif
         </h2>
-        <p class="text-sm text-slate-600">Hitung pengenceran larutan, buat persamaan kurva kalibrasi regresi linear ($y = bx + a$), dan tentukan kadar Thiamin dalam sampel.</p>
+        <p class="text-sm text-slate-600">Hitung pengenceran larutan, buat persamaan kurva kalibrasi regresi linear (y = bx + a), dan tentukan kadar Thiamin dalam sampel.</p>
       </div>
 
       <!-- Feature A: Pengenceran V1 C1 = V2 C2 -->
       <div class="bg-white rounded-xl p-5 shadow-sm border border-slate-200">
         <h3 class="font-bold text-slate-900 text-base mb-3 flex items-center justify-between border-b border-slate-100 pb-2">
-          <span class="flex items-center gap-2"><i class="fa-solid fa-vial-circle-check text-teal-600"></i> Fitur A: Perhitungan Pengenceran ($V_1 \cdot C_1 = V_2 \cdot C_2$)</span>
+          <span class="flex items-center gap-2"><i class="fa-solid fa-vial-circle-check text-teal-600"></i> Fitur A: Perhitungan Pengenceran (V₁ × C₁ = V₂ × C₂)</span>
           <span class="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Larutan Induk & Deret</span>
         </h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
           <div>
-            <label class="block font-medium text-slate-700 mb-1">Konsentrasi Induk ($C_1$ ppm)</label>
+            <label class="block font-medium text-slate-700 mb-1">Konsentrasi Induk (C₁ ppm)</label>
             <input type="number" id="dil-c1" value="100" class="w-full p-2 border border-slate-300 rounded focus:ring-2 focus:ring-teal-500 focus:outline-none">
           </div>
           <div>
-            <label class="block font-medium text-slate-700 mb-1">Konsentrasi Target ($C_2$ ppm)</label>
+            <label class="block font-medium text-slate-700 mb-1">Konsentrasi Target (C₂ ppm)</label>
             <input type="number" id="dil-c2" value="6" class="w-full p-2 border border-slate-300 rounded focus:ring-2 focus:ring-teal-500 focus:outline-none">
           </div>
           <div>
-            <label class="block font-medium text-slate-700 mb-1">Volume Akhir Labu ($V_2$ mL)</label>
+            <label class="block font-medium text-slate-700 mb-1">Volume Akhir Labu (V₂ mL)</label>
             <input type="number" id="dil-v2" value="50" class="w-full p-2 border border-slate-300 rounded focus:ring-2 focus:ring-teal-500 focus:outline-none">
           </div>
           <div>
-            <label class="block font-medium text-slate-700 mb-1">Volume Dipipet ($V_1$ Hasil)</label>
+            <label class="block font-medium text-slate-700 mb-1">Volume Dipipet (V₁ Hasil)</label>
             <div class="p-2 bg-teal-50 border border-teal-200 text-teal-900 font-bold rounded font-mono text-sm" id="dil-v1-result">
               3.00 mL
             </div>
@@ -409,8 +468,8 @@
                 <thead class="bg-slate-100 text-slate-700 font-semibold">
                   <tr>
                     <th class="p-2 rounded-l">No.</th>
-                    <th class="p-2">Konsentrasi $x$ (ppm)</th>
-                    <th class="p-2 rounded-r">Absorbansi $y$ ($A$)</th>
+                    <th class="p-2">Konsentrasi x (ppm)</th>
+                    <th class="p-2 rounded-r">Absorbansi y (A)</th>
                   </tr>
                 </thead>
                 <tbody class="divide-y divide-slate-100" id="std-table-body">
@@ -435,7 +494,7 @@
               <span class="font-bold text-teal-700" id="reg-equation">y = 0x + 0</span>
             </div>
             <div class="flex justify-between border-t border-slate-200 pt-1">
-              <span class="text-slate-600">Koef. Determinasi ($R^2$):</span>
+              <span class="text-slate-600">Koef. Determinasi (R²):</span>
               <span class="font-bold text-emerald-600" id="reg-r2">0.0000</span>
             </div>
           </div>
@@ -453,7 +512,7 @@
             </div>
           </div>
           <p class="text-xs text-slate-500 mt-2 text-center">
-            Garis linieritas kurva kalibrasi menunjukkan kepatuhan terhadap Hukum Lambert-Beer ($R^2 \ge 0,995$).
+            Garis linieritas kurva kalibrasi menunjukkan kepatuhan terhadap Hukum Lambert-Beer (R² ≥ 0,995).
           </p>
         </div>
 
@@ -470,7 +529,7 @@
           <!-- Inputs for Sample -->
           <div class="space-y-3 text-xs">
             <div>
-              <label class="block font-medium text-slate-700 mb-1">Absorbansi Sampel ($A_{\text{sampel}}$)</label>
+              <label class="block font-medium text-slate-700 mb-1">Absorbansi Sampel (A<sub>sampel</sub>)</label>
               <input type="number" id="smp-abs" step="0.001" value="0.325" class="w-full p-2 border border-slate-300 rounded focus:ring-2 focus:ring-teal-500 focus:outline-none">
             </div>
             <div>
@@ -485,15 +544,15 @@
 
           <div class="space-y-3 text-xs">
             <div>
-              <label class="block font-medium text-slate-700 mb-1">Volume Labu Utama ($V_{\text{awal}}$ mL)</label>
+              <label class="block font-medium text-slate-700 mb-1">Volume Labu Utama (V<sub>awal</sub> mL)</label>
               <input type="number" id="smp-v1" value="100" class="w-full p-2 border border-slate-300 rounded focus:ring-2 focus:ring-teal-500 focus:outline-none">
             </div>
             <div>
-              <label class="block font-medium text-slate-700 mb-1">Alikuot Dipipet ($V_{\text{pipet}}$ mL)</label>
+              <label class="block font-medium text-slate-700 mb-1">Alikuot Dipipet (V<sub>pipet</sub> mL)</label>
               <input type="number" id="smp-v-pipet" value="3" class="w-full p-2 border border-slate-300 rounded focus:ring-2 focus:ring-teal-500 focus:outline-none">
             </div>
             <div>
-              <label class="block font-medium text-slate-700 mb-1">Volume Labu Pengenceran ($V_{\text{akhir}}$ mL)</label>
+              <label class="block font-medium text-slate-700 mb-1">Volume Labu Pengenceran (V<sub>akhir</sub> mL)</label>
               <input type="number" id="smp-v2" value="50" class="w-full p-2 border border-slate-300 rounded focus:ring-2 focus:ring-teal-500 focus:outline-none">
             </div>
           </div>
@@ -504,7 +563,7 @@
             
             <div class="space-y-2 text-xs">
               <div class="flex justify-between border-b border-teal-200/60 pb-1">
-                <span class="text-teal-700">Konsentrasi ($C$ terhitung):</span>
+                <span class="text-teal-700">Konsentrasi (C terhitung):</span>
                 <span class="font-mono font-bold text-slate-900" id="res-conc-ppm">0.00 ppm</span>
               </div>
               <div class="flex justify-between border-b border-teal-200/60 pb-1">
@@ -525,85 +584,6 @@
               Kadar Thiamin standar farmakope: 95.0% - 105.0%
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- MODUL 4: UJI PEMAHAMAN SINGKAT -->
-    <section id="sec-modul4" class="tab-content hidden space-y-6">
-      <div class="bg-white rounded-xl p-6 shadow-sm border border-slate-200">
-        <div class="flex items-center justify-between">
-          <div>
-            <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
-              <i class="fa-solid fa-circle-question text-teal-600"></i>
-              Uji Pemahaman Analisis Spektrofotometri
-            </h2>
-            <p class="text-sm text-slate-600 mt-1">Evaluasi pemahaman Anda mengenai instrumen UV-1800 dan analisis Thiamin.</p>
-          </div>
-          <div class="text-right">
-            <span class="text-xs text-slate-500">Skor Saat Ini:</span>
-            <div class="text-2xl font-bold font-mono text-teal-600" id="quiz-score">0 / 3</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Quiz Questions Container -->
-      <div class="space-y-4" id="quiz-container">
-        <!-- Question 1 -->
-        <div class="bg-white rounded-xl p-5 shadow-sm border border-slate-200">
-          <h3 class="font-semibold text-slate-900 text-sm mb-3">
-            1. Jenis lampu apa yang digunakan sebagai sumber cahaya daerah Ultraviolet (UV) pada instrumen Shimadzu UV-1800?
-          </h3>
-          <div class="space-y-2 text-xs">
-            <button onclick="checkQuiz(1, 'A', false)" class="q-btn-1-A w-full text-left p-3 rounded-lg border border-slate-200 hover:bg-slate-50 transition flex items-center space-x-2">
-              <span class="font-bold">A.</span><span>Lampu Tungsten / Halogen</span>
-            </button>
-            <button onclick="checkQuiz(1, 'B', true)" class="q-btn-1-B w-full text-left p-3 rounded-lg border border-slate-200 hover:bg-slate-50 transition flex items-center space-x-2">
-              <span class="font-bold">B.</span><span>Lampu Deuterium ($D_2$)</span>
-            </button>
-            <button onclick="checkQuiz(1, 'C', false)" class="q-btn-1-C w-full text-left p-3 rounded-lg border border-slate-200 hover:bg-slate-50 transition flex items-center space-x-2">
-              <span class="font-bold">C.</span><span>Lampu Merkuri Tekanan Tinggi</span>
-            </button>
-          </div>
-          <div id="quiz-feedback-1" class="mt-3 text-xs hidden p-2 rounded"></div>
-        </div>
-
-        <!-- Question 2 -->
-        <div class="bg-white rounded-xl p-5 shadow-sm border border-slate-200">
-          <h3 class="font-semibold text-slate-900 text-sm mb-3">
-            2. Berapa panjang gelombang serapan maksimum ($\lambda_{\max}$) untuk Thiamin HCl dalam pelarut HCl 0.1 M?
-          </h3>
-          <div class="space-y-2 text-xs">
-            <button onclick="checkQuiz(2, 'A', false)" class="q-btn-2-A w-full text-left p-3 rounded-lg border border-slate-200 hover:bg-slate-50 transition flex items-center space-x-2">
-              <span class="font-bold">A.</span><span>$540\text{ nm}$</span>
-            </button>
-            <button onclick="checkQuiz(2, 'B', false)" class="q-btn-2-B w-full text-left p-3 rounded-lg border border-slate-200 hover:bg-slate-50 transition flex items-center space-x-2">
-              <span class="font-bold">B.</span><span>$340\text{ nm}$</span>
-            </button>
-            <button onclick="checkQuiz(2, 'C', true)" class="q-btn-2-C w-full text-left p-3 rounded-lg border border-slate-200 hover:bg-slate-50 transition flex items-center space-x-2">
-              <span class="font-bold">C.</span><span>$261\text{ nm}$</span>
-            </button>
-          </div>
-          <div id="quiz-feedback-2" class="mt-3 text-xs hidden p-2 rounded"></div>
-        </div>
-
-        <!-- Question 3 -->
-        <div class="bg-white rounded-xl p-5 shadow-sm border border-slate-200">
-          <h3 class="font-semibold text-slate-900 text-sm mb-3">
-            3. Bahan kuvet manakah yang wajib digunakan untuk pengukuran pada daerah Ultraviolet (UV)?
-          </h3>
-          <div class="space-y-2 text-xs">
-            <button onclick="checkQuiz(3, 'A', true)" class="q-btn-3-A w-full text-left p-3 rounded-lg border border-slate-200 hover:bg-slate-50 transition flex items-center space-x-2">
-              <span class="font-bold">A.</span><span>Kuvet Kuarsa (Quartz)</span>
-            </button>
-            <button onclick="checkQuiz(3, 'B', false)" class="q-btn-3-B w-full text-left p-3 rounded-lg border border-slate-200 hover:bg-slate-50 transition flex items-center space-x-2">
-              <span class="font-bold">B.</span><span>Kuvet Kaca / Glass</span>
-            </button>
-            <button onclick="checkQuiz(3, 'C', false)" class="q-btn-3-C w-full text-left p-3 rounded-lg border border-slate-200 hover:bg-slate-50 transition flex items-center space-x-2">
-              <span class="font-bold">C.</span><span>Kuvet Plastik Polistirena Baku</span>
-            </button>
-          </div>
-          <div id="quiz-feedback-3" class="mt-3 text-xs hidden p-2 rounded"></div>
         </div>
       </div>
     </section>
@@ -645,12 +625,12 @@
       detector: {
         title: "4. Detektor Photodiode",
         tag: "Signal Conversion",
-        desc: "Detektor Silicon Photodiode presisi tinggi merespons foton cahaya yang ditransmisikan melalui sampel dan mengubah intensitas radiasi elektromagnetik ($I_0$ dan $I$) menjadi sinyal arus listrik rasional."
+        desc: "Detektor Silicon Photodiode presisi tinggi merespons foton cahaya yang ditransmisikan melalui sampel dan mengubah intensitas radiasi elektromagnetik (I₀ dan I) menjadi sinyal arus listrik rasional."
       },
       screen: {
         title: "5. Layar LCD & Keypad Kontrol",
         tag: "User Interface",
-        desc: "Antarmuka onboard Shimadzu UV-1800 yang dilengkapi layar LCD beresolusi tajam dan keypad numerik ergonomis untuk memrogram kurva kalibrasi, mengatur $\lambda_{\max}$, mode fotometrik, kuantitasi, serta pemindaian spektrum."
+        desc: "Antarmuka onboard Shimadzu UV-1800 yang dilengkapi layar LCD beresolusi tajam dan keypad numerik ergonomis untuk memrogram kurva kalibrasi, mengatur λ_maks, mode fotometrik, kuantitasi, serta pemindaian spektrum."
       }
     };
 
@@ -664,8 +644,6 @@
     ];
 
     let chartInstance = null;
-    let currentQuizScore = 0;
-    const answeredQuestions = new Set();
 
     // Tab Switching Function
     function switchTab(tabId) {
@@ -704,6 +682,167 @@
       if(viewer) {
         viewer.cameraOrbit = "0deg 75deg 2.5m";
       }
+    }
+
+    // Load Custom 3D Model File (.glb / .gltf / FBX converted)
+    function loadUser3DModel(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const url = URL.createObjectURL(file);
+        const viewer = document.getElementById('uv-viewer');
+        viewer.src = url;
+      }
+    }
+
+    // SIMULASI CARA KERJA OPTIK CANVAS
+    let stepOffset = 0;
+    function initOpticsSimulation() {
+      const canvas = document.getElementById('opticsCanvas');
+      if(!canvas) return;
+      const ctx = canvas.getContext('2d');
+
+      function resizeCanvas() {
+        canvas.width = canvas.clientWidth;
+        canvas.height = 320;
+      }
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+
+      const wlSlider = document.getElementById('sim-wl');
+      const concSlider = document.getElementById('sim-conc');
+
+      function wlToColor(wl) {
+        if (wl < 380) return 'rgba(192, 132, 252, 0.9)'; // UV
+        if (wl < 450) return 'rgba(99, 102, 241, 0.9)';  // Blue
+        if (wl < 495) return 'rgba(14, 165, 233, 0.9)';  // Cyan
+        if (wl < 570) return 'rgba(34, 197, 94, 0.9)';   // Green
+        if (wl < 590) return 'rgba(234, 179, 8, 0.9)';   // Yellow
+        if (wl < 620) return 'rgba(249, 115, 22, 0.9)';  // Orange
+        return 'rgba(239, 68, 68, 0.9)';                 // Red
+      }
+
+      function drawFrame() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        const wl = parseFloat(wlSlider.value);
+        const conc = parseFloat(concSlider.value);
+        const beamColor = wlToColor(wl);
+
+        // Beer-Lambert calculation at peak 261 nm
+        const epsilonPeak = 0.03;
+        const factor = Math.exp(-Math.pow((wl - 261) / 30, 2));
+        const A = (epsilonPeak * conc * factor).toFixed(3);
+        const T = (Math.pow(10, -A) * 100).toFixed(1);
+
+        document.getElementById('sim-wl-val').innerText = `${wl} nm (${wl < 340 ? 'Area UV' : 'Area Visibel'})`;
+        document.getElementById('sim-conc-val').innerText = `${conc.toFixed(1)} ppm`;
+        document.getElementById('sim-abs').innerText = A;
+        document.getElementById('sim-trans').innerText = `${T} %`;
+        document.getElementById('sim-lamp').innerText = wl < 340 ? 'Deuterium (D2)' : 'Tungsten/Halogen';
+        document.getElementById('sim-lamp').className = `font-bold ${wl < 340 ? 'text-amber-400' : 'text-orange-400'}`;
+
+        const w = canvas.width;
+        const h = canvas.height;
+
+        // 1. Light Source
+        ctx.fillStyle = wl < 340 ? '#a855f7' : '#f59e0b';
+        ctx.shadowBlur = 12;
+        ctx.shadowColor = ctx.fillStyle;
+        ctx.beginPath();
+        ctx.arc(45, h/2, 16, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+        ctx.fillStyle = '#94a3b8';
+        ctx.font = '10px sans-serif';
+        ctx.fillText('Lampu', 30, h/2 + 32);
+
+        // 2. Monochromator
+        ctx.fillStyle = '#475569';
+        ctx.fillRect(130, h/2 - 25, 12, 50);
+        ctx.fillText('Monokromator', 105, h/2 + 38);
+
+        // 3. Beam Splitter
+        ctx.fillStyle = '#94a3b8';
+        ctx.beginPath();
+        ctx.moveTo(230, h/2 - 20);
+        ctx.lineTo(248, h/2 + 20);
+        ctx.lineTo(243, h/2 + 20);
+        ctx.lineTo(225, h/2 - 20);
+        ctx.fill();
+        ctx.fillText('Beam Splitter', 210, h/2 + 38);
+
+        // 4. Cuvettes
+        // Blank (Top)
+        ctx.strokeStyle = '#38bdf8';
+        ctx.strokeRect(390, h/2 - 65, 24, 32);
+        ctx.fillText('Kuvet Blangko', 370, h/2 - 73);
+
+        // Sample (Bottom)
+        ctx.strokeRect(390, h/2 + 35, 24, 32);
+        ctx.fillStyle = `rgba(56, 189, 248, ${Math.min(conc / 20, 0.85)})`;
+        ctx.fillRect(391, h/2 + 36, 22, 30);
+        ctx.fillStyle = '#94a3b8';
+        ctx.fillText('Kuvet Sampel', 370, h/2 + 82);
+
+        // 5. Detectors
+        ctx.fillStyle = '#22c55e';
+        ctx.fillRect(520, h/2 - 60, 14, 22);
+        ctx.fillRect(520, h/2 + 40, 14, 22);
+        ctx.fillText('Detektor', 510, h/2 + 75);
+
+        // Light Beams Animation
+        ctx.lineWidth = 3;
+        ctx.setLineDash([6, 6]);
+        ctx.lineDashOffset = -stepOffset;
+
+        // Beam 1: Lamp -> Monochromator
+        ctx.strokeStyle = '#ffffff';
+        ctx.beginPath();
+        ctx.moveTo(61, h/2);
+        ctx.lineTo(130, h/2);
+        ctx.stroke();
+
+        // Beam 2: Monochromator -> Beam Splitter
+        ctx.strokeStyle = beamColor;
+        ctx.beginPath();
+        ctx.moveTo(142, h/2);
+        ctx.lineTo(233, h/2);
+        ctx.stroke();
+
+        // Beam 3A: Split to Blank Cuvette
+        ctx.beginPath();
+        ctx.moveTo(233, h/2);
+        ctx.lineTo(233, h/2 - 49);
+        ctx.lineTo(390, h/2 - 49);
+        ctx.stroke();
+
+        // Beam 3B: Split to Sample Cuvette
+        ctx.beginPath();
+        ctx.moveTo(233, h/2);
+        ctx.lineTo(233, h/2 + 51);
+        ctx.lineTo(390, h/2 + 51);
+        ctx.stroke();
+
+        // Beam 4A: Blank -> Detector
+        ctx.beginPath();
+        ctx.moveTo(414, h/2 - 49);
+        ctx.lineTo(520, h/2 - 49);
+        ctx.stroke();
+
+        // Beam 4B: Sample -> Detector (Dimmer when Absorbance increases)
+        const alpha = Math.max(0.1, (parseFloat(T) / 100));
+        ctx.strokeStyle = beamColor.replace('0.9', alpha.toFixed(2));
+        ctx.beginPath();
+        ctx.moveTo(414, h/2 + 51);
+        ctx.lineTo(520, h/2 + 51);
+        ctx.stroke();
+
+        ctx.setLineDash([]);
+        stepOffset += 0.8;
+        requestAnimationFrame(drawFrame);
+      }
+
+      drawFrame();
     }
 
     // Module 3: Render Standard Data Table
@@ -877,31 +1016,12 @@
       document.getElementById('res-pct').innerText = `${percentageWw.toFixed(2)} %`;
     }
 
-    // Module 4: Quiz Logic
-    function checkQuiz(qNum, opt, isCorrect) {
-      const feedbackEl = document.getElementById(`quiz-feedback-${qNum}`);
-      feedbackEl.classList.remove('hidden', 'bg-emerald-100', 'text-emerald-900', 'bg-rose-100', 'text-rose-900');
-
-      if(isCorrect) {
-        feedbackEl.classList.add('bg-emerald-100', 'text-emerald-900');
-        feedbackEl.innerHTML = `<i class="fa-solid fa-circle-check mr-1"></i> <strong>Benar!</strong> Jawaban Anda tepat.`;
-        if(!answeredQuestions.has(qNum)) {
-          currentQuizScore += 1;
-          answeredQuestions.add(qNum);
-        }
-      } else {
-        feedbackEl.classList.add('bg-rose-100', 'text-rose-900');
-        feedbackEl.innerHTML = `<i class="fa-solid fa-circle-xmark mr-1"></i> <strong>Kurang Tepat.</strong> Silakan tinjau kembali modul 1 & 2.`;
-      }
-
-      document.getElementById('quiz-score').innerText = `${currentQuizScore} / 3`;
-    }
-
     // Attach Event Listeners
     window.onload = function() {
       selectComponent('light');
       initChart();
       renderStdTable();
+      initOpticsSimulation();
 
       // Dilution inputs
       ['dil-c1', 'dil-c2', 'dil-v2'].forEach(id => {
@@ -916,5 +1036,3 @@
   </script>
 </body>
 </html>
-
- 
